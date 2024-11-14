@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 2.2</title>
+</head>
+
+<body>
+    <h2>คำนวณพื้นที่สามเหลี่ยม</h2>
+
+    <label for="b_triangle">ใส่ขนาดฐาน:</label>
+    <input type="number" id="b_triangle" step="any">
+    <label for="h_triangle">ใส่ขนาดความสูง:</label>
+    <input type="number" id="h_triangle" step="any">
+    
+    <button onclick="triangleArea()">คำนวณพื้นที่</button>
+    <h2 id="trianglearea"></h2>
+
+    <h2>คำนวณพื้นที่สี่เหลี่ยม</h2>
+    <label for="b_rectangle">ใส่ขนาดฐาน:</label>
+    <input type="number" id="b_rectangle" step="any">
+    <label for="w_rectangle">ใส่ขนาดความสูง:</label>
+    <input type="number" id="w_rectangle" step="any">
+
+    <button onclick="rectangleArea()">คำนวณพื้นที่</button>
+
+
+    <h2 id="rectanglearea"></h2>
+
+    <script>
+
+        function triangleArea() {
+            var b = parseFloat(document.getElementById("b_triangle").value);
+            var h = parseFloat(document.getElementById("h_triangle").value);
+
+            var triangle = trianglearea(b, h);
+            document.getElementById("trianglearea").innerHTML = `พื้นที่คือ: ${triangle.toFixed(2)}`;
+        }
+
+        function trianglearea(b, h) {
+            return 1 / 2 * b * h;
+        }
+
+        function rectangleArea() {
+            var b = parseFloat(document.getElementById("b_rectangle").value);
+            var w = parseFloat(document.getElementById("w_rectangle").value);
+
+            var rectangl = rectanglearea(b, w);
+            document.getElementById("rectanglearea").innerHTML = `พื้นที่คือ: ${rectangl.toFixed(2)}`;
+        }
+
+        function rectanglearea(b, w) {
+            return b * w;
+        }
+
+    </script>
+</body>
+
+</html>

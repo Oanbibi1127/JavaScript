@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 1.1</title>
+</head>
+
+<body>
+    <h2>Variable Values:</h2>
+    <div id="variableOutput">
+        <p id="m"></p>
+        <p id="n"></p>
+        <p id="c"></p>
+        <p id="d"></p>
+        <p id="x"></p>
+    </div>
+
+    <div id="favoriteOutput"></div>
+
+    <h2>คำนวณพื้นที่วงกลม</h2>
+
+    <label for="radiusInput">ใส่ขนาดพื้นที่:</label>
+    <input type="number" id="radiusInput" step="any">
+    <button onclick="calculateArea()">คำนวณพื้นที่</button>
+
+
+
+    <p id="areaDisplay"></p>
+
+
+    <script>
+        let m = "Hello";
+        let n = "Sorry";
+        let c = true;
+        let d = false;
+        let x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+
+        document.getElementById("m").innerHTML = `m: ${m}`;
+        document.getElementById("n").innerHTML = `n: ${n}`;
+        document.getElementById("c").innerHTML = `c: ${c}`;
+        document.getElementById("d").innerHTML = `d: ${d}`;
+        document.getElementById("x").innerHTML = `x: ${x.join(", ")}`;
+
+        function Favorite(food, drink, fruit) {
+            this.food = food;
+            this.drink = drink;
+            this.fruit = fruit;
+
+            this.showFavorite = function () {
+                let output = `
+                    <h2>รายการอาหาร</h2>
+                    <p>Food: ${this.food}</p>
+                    <p>Drink: ${this.drink}</p>
+                    <p>Fruit: ${this.fruit}</p>
+                `;
+                document.getElementById("favoriteOutput").innerHTML += output;
+            };
+        }
+
+        let myFavorite = new Favorite("Pizza", "Cola", "Apple");
+        myFavorite.showFavorite();
+
+        function calculateArea() {
+            var radius = parseFloat(document.getElementById("radiusInput").value);
+
+            var totalArea = area(radius);
+            document.getElementById("areaDisplay").innerHTML = ` ${totalArea.toFixed(2)}`;
+
+        }
+
+        function area(radius) {
+            return radius * radius * Math.PI;
+        }
+
+        var numbersDivisibleBy5 = [];
+
+        for (var i = 1; i <= 100; i++) {
+            if (i % 5 === 0) {
+                numbersDivisibleBy5.push(i);
+            }
+        }
+
+        document.getElementById("favoriteOutput").innerHTML = `
+    <h2>ตัวเลขที่หาร 5 ลงตัวจาก 1 ถึง 100:</h2>
+    <p>${numbersDivisibleBy5.join(", ")}</p>
+`;
+    </script>
+</body>
+
+</html>

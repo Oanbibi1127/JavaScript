@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 2.3</title>
+    <style>
+        p {
+            display: inline-block; 
+            margin-right: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <h2>กรอกข้อมูล</h2>
+
+    <label for="Firstname_Input">ชื่อ:</label>
+    <input type="text" id="Firstname_Input" step="any"><br>
+    <label for="Lastname_Input">นามสกุล:</label>
+    <input type="text" id="Lastname_Input" step="any"><br>
+    <label for="Age_Input">อายุ:</label>
+    <input type="number" id="Age_Input" step="any"><br>
+
+    <button onclick="record()">บันทึก</button>
+
+    <br>
+    <p id="fnameDisplay"></p>
+    <p id="lnameDisplay"></p>
+    <p id="ageDisplay"></p>
+
+    <script>
+         function record() {
+            var fname = document.getElementById("Firstname_Input").value;
+            var lname = document.getElementById("Lastname_Input").value;
+            var age = document.getElementById("Age_Input").value;
+
+            document.getElementById("fnameDisplay").innerHTML = `ชื่อ-นามสกุล: ${fname}`;
+            document.getElementById("lnameDisplay").innerHTML = `  ${lname}`;
+            document.getElementById("ageDisplay").innerHTML = `อายุ: ${age}`;
+        }
+    </script>
+</body>
+</html>

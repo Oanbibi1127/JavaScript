@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 1.2</title>
+
+    <style>
+        #box {
+            width: 300px;
+            height: 100px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>tag p 1</p>
+    <p>tag p 2</p>
+    <p>tag p 3</p>
+    <p>tag p 4</p>
+    <p>tag p 5</p>
+
+
+    <h3 id="count"></h3>
+    <h3 id="display"></h3>
+
+
+    <h2>กรอกข้อมูล</h2>
+
+    <label for="Firstname_Input">ชื่อ:</label>
+    <input type="text" id="Firstname_Input" step="any"><br>
+    <label for="Lastname_Input">นามสกุล:</label>
+    <input type="text" id="Lastname_Input" step="any"><br>
+    <label for="Nickname_Input">ชื่อเล่น:</label>
+    <input type="text" id="Nickname_Input" step="any"><br>
+    <label for="Phon_Input">เบอร์โทรศัพท์:</label>
+    <input type="number" id="Phon_Input" step="any"><br>
+    <label for="Sex_Input">เพศ:</label>
+    <input type="text" id="Sex_Input" step="any"><br>
+    <label for="Age_Input">อายุ:</label>
+    <input type="number" id="Age_Input" step="any"><br>
+
+    <button onclick="record()">บันทึก</button>
+
+
+    <p id="fnameDisplay"></p>
+    <p id="lnameDisplay"></p>
+    <p id="nicknameDisplay"></p>
+    <p id="phonDisplay"></p>
+    <p id="sexDisplay"></p>
+    <p id="ageDisplay"></p>
+
+    <button id="box" onmouseover="changeColor(this, 'red')" onmouseout="resetColor(this)">ปุ่ม 1</button>
+    <button id="box" onmouseover="changeColor(this, 'green')" onmouseout="resetColor(this)">ปุ่ม 2</button>
+    <button id="box" onmouseover="changeColor(this, 'blue')" onmouseout="resetColor(this)">ปุ่ม 3</button>
+
+    <script>
+        function getFirstPContent() {
+            return document.getElementsByTagName('p')[0].textContent;
+        }
+        function getACount() {
+            return document.getElementsByTagName('p').length;
+        }
+
+        document.getElementById("count").textContent = "จำนวนแท็ก <p> คือ: " + getACount();
+        document.getElementById("display").textContent = "ข้อความในแท็ก <p> ตัวแรกคือ: " + getFirstPContent();
+
+        function record() {
+            var fname = document.getElementById("Firstname_Input").value;
+            var lname = document.getElementById("Lastname_Input").value;
+            var nickname = document.getElementById("Nickname_Input").value;
+            var phon = document.getElementById("Phon_Input").value;
+            var sex = document.getElementById("Sex_Input").value;
+            var age = document.getElementById("Age_Input").value;
+
+            document.getElementById("fnameDisplay").innerHTML = `${fname}`;
+            document.getElementById("lnameDisplay").innerHTML = `${lname}`;
+            document.getElementById("nicknameDisplay").innerHTML = `${nickname}`;
+            document.getElementById("phonDisplay").innerHTML = `${phon}`;
+            document.getElementById("sexDisplay").innerHTML = `${sex}`;
+            document.getElementById("ageDisplay").innerHTML = `${age}`;
+        }
+
+
+        function changeColor(button, color) {
+            button.style.color = color; 
+        }
+
+        function resetColor(button) {
+            button.style.color = 'black'; 
+        }
+    </script>
+</body>
+
+</html>
